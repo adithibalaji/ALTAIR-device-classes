@@ -1,4 +1,4 @@
-#ifndef   ALTAIR_SEN0133.h
+#ifndef   ALTAIR_SEN0133_h
 #define   ALTAIR_SEN0133_h
 
 #include "Arduino.h"
