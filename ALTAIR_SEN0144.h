@@ -10,7 +10,7 @@ class ALTAIR_SEN0144 {
   
   public:
   
-  ALTAIR_SEN0144(int measurePin);
+  ALTAIR_SEN0144(int measurePin, int ledPower);
 
   int measurePin;
   int ledPower; 
@@ -22,9 +22,9 @@ class ALTAIR_SEN0144 {
 
   void measureSample(int samplingTime, int deltaTime);
   void calcDustDensity();
-  void printDustVal(int samplingTime, int deltaTime;
+  void printDustVal(int samplingTime, int deltaTime);
 \
     
-}
+};
 
 #endif
