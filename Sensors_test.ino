@@ -8,7 +8,8 @@
 ALTAIR_SEN0177 sen0177;
 
 void setup() {
-  //No setup required for sensors. If they are functioning, there should be output to the serial monitor
+  //Initialize serial baud rate
+  Serial.begin(9600);
 }
 
 void loop() {
