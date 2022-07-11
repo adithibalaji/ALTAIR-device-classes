@@ -1,15 +1,17 @@
-#include "ALTAIR_SEN1033.h"
+#include "ALTAIR_SEN0133.h"
 
 
 //Constructor with input indicating pin to which sensor is connected
-ALTAIR_SEN0133::ALTAIR_SEN1033(int measurePin, int sampleDelay){
+ALTAIR_SEN0133::ALTAIR_SEN0133(int measurePin, int sampleDelay){
  
-  _measurePin = measurePin; 
-  _sampleDelay = sampleDelay;
+  measurePin = measurePin; 
+  sampleDelay = sampleDelay;
+  
 }
 
 //Print gas value to serial monitor
-void ALTAIR_SEN0133::printGasVal(int sampleDelay){
+void ALTAIR_SEN0133::printGasVal(){
+
   hydrogenVal = analogRead(measurePin);
   Serial.print("Hydrogen gas value: ");
   Serial.print(hydrogenVal);
