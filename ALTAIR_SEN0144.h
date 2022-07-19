@@ -10,10 +10,9 @@ class ALTAIR_SEN0144 {
   
   public:
   
-  ALTAIR_SEN0144(int measurePin, int sampleDelay);
+  ALTAIR_SEN0144();
 
-  int measurePin;
-  int sampleDelay; 
+  
 
   float voMeasured;
   float calcVoltage;
