@@ -1,11 +1,9 @@
 #include "ALTAIR_SEN0133.h"
-
+#define measurePin 0
+#define sampleDelay 1000
 
 //Constructor with input indicating pin to which sensor is connected
-ALTAIR_SEN0133::ALTAIR_SEN0133(int measurePin, int sampleDelay){
- 
-  measurePin = measurePin; 
-  sampleDelay = sampleDelay;
+ALTAIR_SEN0133::ALTAIR_SEN0133(){
   
 }
 
