@@ -7,10 +7,8 @@ class ALTAIR_SEN0133 {
   
   public:
   
-  ALTAIR_SEN0133(int measurePin, int sampleDelay);
+  ALTAIR_SEN0133();
 
-  int measurePin;
-  int sampleDelay;
   int hydrogenVal;
 
 
