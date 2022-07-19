@@ -8,25 +8,19 @@
 
 
 //Constructor with input indicating sensor output and LED pin locations
-ALTAIR_SEN0144::ALTAIR_SEN0144(int measurePin, int ledPower) {
+ALTAIR_SEN0144::ALTAIR_SEN0144(int measurePin, int sampleDelay) {
   measurePin = measurePin;
-  ledPower = ledPower;
+  sampleDelay = sampleDelay;
   voMeasured = calcVoltage = dustDensity = 0;
 }
 
 
 
 //Drive LED and read raw dust value
-void ALTAIR_SEN0144::measureSample(int samplingTime, int deltaTime){
-  
-  pinMode(ledPower, OUTPUT);
-  digitalWrite(ledPower,LOW); // power on the LED
-  delayMicroseconds(samplingTime);
+void ALTAIR_SEN0144::measureSample(){
 
   voMeasured = analogRead(measurePin); // read the dust value
-
-  delayMicroseconds(deltaTime);
-  digitalWrite(ledPower,HIGH); // turn the LED off
+  delay(sampleDelay);
 }
 
 //Calculate dust density
@@ -42,8 +36,8 @@ void ALTAIR_SEN0144::calcDustDensity(){
 
 
 //Output dust value
-void ALTAIR_SEN0144::printDustVal(int samplingTime, int deltaTime){
-  measureSample(samplingTime,deltaTime);
+void ALTAIR_SEN0144::printDustVal(){
+  measureSample();
   calcDustDensity();
   Serial.print("Dust density: ");
   Serial.print(dustDensity);
