@@ -4,13 +4,13 @@
 #define INT_VALS 1024.0
 #define DENSITY_MULTIPLIER 0.17
 #define DENSITY_OFFSET 0.1
-
+#define measurePin 0
+#define sampleDelay 1000
 
 
 //Constructor with input indicating sensor output and LED pin locations
-ALTAIR_SEN0144::ALTAIR_SEN0144(int measurePin, int sampleDelay) {
-  measurePin = measurePin;
-  sampleDelay = sampleDelay;
+ALTAIR_SEN0144::ALTAIR_SEN0144() {
+
   voMeasured = calcVoltage = dustDensity = 0;
 }
 
