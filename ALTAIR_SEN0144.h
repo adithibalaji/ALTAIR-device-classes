@@ -10,19 +10,19 @@ class ALTAIR_SEN0144 {
   
   public:
   
-  ALTAIR_SEN0144(int measurePin, int ledPower);
+  ALTAIR_SEN0144(int measurePin, int sampleDelay);
 
   int measurePin;
-  int ledPower; 
+  int sampleDelay; 
 
   float voMeasured;
   float calcVoltage;
   float dustDensity;
 
 
-  void measureSample(int samplingTime, int deltaTime);
+  void measureSample();
   void calcDustDensity();
-  void printDustVal(int samplingTime, int deltaTime);
+  void printDustVal();
 \
     
 };
