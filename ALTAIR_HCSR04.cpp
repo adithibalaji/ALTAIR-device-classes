@@ -1,7 +1,7 @@
 #include "ALTAIR_HCSR04.h"
 
-#define MAX_DISTANCE 350
-#define SPEED_OF_SOUND 0.0343
+#define MAX_DISTANCE 350       // cm
+#define SPEED_OF_SOUND 0.0343  // cm per us
 #define echoPin 3
 #define trigPin 2
 
