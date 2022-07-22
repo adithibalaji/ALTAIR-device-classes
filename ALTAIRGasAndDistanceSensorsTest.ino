@@ -13,7 +13,7 @@
 
 void setup() {
   //Initialize serial baud rate
-  Serial.begin(9600);
+  Serial.begin(38400);
 }
 
 void loop() {
