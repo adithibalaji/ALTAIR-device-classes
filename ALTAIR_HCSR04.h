@@ -13,15 +13,15 @@
 class ALTAIR_HCSR04{
   public:
 
-    ALTAIR_HCSR04(      ) ;
+    ALTAIR_HCSR04(          ) ;
 
-    float getdistance(  ) ;
+    float     getDistance(  ) ;  // Returned distance will be 0 when the actual distance exceeds MAX_HCSR04_DISTANCE.
 
-    void  printDistance() ;
+    void      printDistance() ;
   
   private:
   
-    NewPing _sonar        ;
+    NewPing  _sonar           ;
 
 };
 
