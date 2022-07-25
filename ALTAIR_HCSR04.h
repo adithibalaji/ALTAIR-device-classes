@@ -5,15 +5,19 @@
 #include <Newping.h>
 
 class ALTAIR_HCSR04{
-public:
+  public:
 
-ALTAIR_HCSR04();
-float duration;
-float distance;
+    ALTAIR_HCSR04(      )               ;
 
+    float duration(     ) { return _dura; }
+    float distance(     ) { return _dist; }
 
-
-void printDistance();
+    void  printDistance()               ;
+  
+  private:
+  
+    float _dura                         ;
+    float _dist                         ;
 
 };
 
