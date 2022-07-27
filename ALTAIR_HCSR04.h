@@ -40,11 +40,12 @@ class ALTAIR_HCSR04{
 
     float     getDistance(      ) ;  // Returned distance is in cm, and will be 0 when the actual distance exceeds MAX_HCSR04_DISTANCE.
                                      // When running this repeatedly for a single HCSR04, please ensure that you
-                                     //   have a delay(HCSR04_MIN_DELAY_BTW_PINGS); between each such request.
+                                     //   have an  hcsr04.delayBtwPings();  between each such request.
 
     void      delayBtwPings(    ) ;  // Wait 50ms between pings (about 20 pings/sec). 29ms should be the shortest delay between pings.
-    void      printDistance(    ) ;
-  
+    void      printDistance(    ) ;  // When running this repeatedly for a single HCSR04, please ensure that you
+                                     //   have an  hcsr04.delayBtwPings();  between each such request.
+
   private:
   
     NewPing  _sonar               ;
