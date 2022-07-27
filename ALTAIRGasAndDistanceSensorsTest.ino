@@ -21,5 +21,5 @@ void loop() {
 //sen0133.printGasVal();
 //sen0144.printDustVal();
 //sen0177.printDustVal();
-hcsr04.printDistance();
+hcsr04.delayBtwPings(); hcsr04.printDistance();
 }
