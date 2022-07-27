@@ -37,9 +37,9 @@ float ALTAIR_HCSR04::getDistance(          ) {
     return    (duration / 2) * SPEED_OF_SOUND;
 }
   
-void  ALTAIR_HCSR04::delayBtwPings() {
-        delay(     HCSR04_MIN_DELAY_BTW_PINGS  ) ; // Wait 50ms between pings (about 20 pings/sec). 29ms should be the shortest delay between pings.
-}
+void  ALTAIR_HCSR04::delayBtwPings( int delay_in_ms ) {
+        delay( delay_in_ms                          ) ; // Wait 50 ms between pings (about 20 pings/sec). 
+}                                                       //   29 ms should be the shortest possible delay between pings.
 
 void  ALTAIR_HCSR04::printDistance() {    
     Serial.print(  "Distance = "   );
