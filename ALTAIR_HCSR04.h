@@ -27,6 +27,7 @@
 #define HCSR04_NOM_ECHO_PIN          3
 #define HCSR04_NOM_TRIG_PIN          2
 #define HCSR04_NOM_DELAY_BTW_PINGS  50       // ms
+#define HCSR04_MIN_DELAY_BTW_PINGS  29       // ms
 
 #include "Arduino.h"
 #include <Newping.h>
