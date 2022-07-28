@@ -18,8 +18,8 @@ void setup() {
 
 void loop() {
 //Test sensor output here
-//sen0133.printGasVal();
-//sen0144.printDustVal();
-//sen0177.printDustVal();
+//sen0133.delayBtwReads; sen0133.printHydrogenGasVal();
+//sen0144.delayBtwReads; sen0144.printDustVal();
+//sen0177.delayBtwReads; sen0177.printDustVal();
 hcsr04.delayBtwPings(); hcsr04.printDistance();
 }
