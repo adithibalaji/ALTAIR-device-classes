@@ -28,12 +28,14 @@
 class ALTAIR_SEN0133 {
   
   public:
-    ALTAIR_SEN0133(                                      ) ;
 
+    ALTAIR_SEN0133(                                      ) ;
+    ALTAIR_SEN0133(          byte  readoutPin            ) ;
+    
     int   getHydrogenGasVal(                             ) ; // Returned value is in ppm.
     void  printHydrogenGasVal(                           ) ;
     
-    void      delayBtwReads( int delay_in_ms =               // Wait between reads  
+    void  delayBtwReads(     int   delay_in_ms =             // Wait between reads  
                              SEN0133_NOM_DELAY_BTW_READS ) ; //   (the nominal wait time is 1 second).
 
   private:
