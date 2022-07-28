@@ -20,24 +20,28 @@
 #include "ALTAIR_SEN0133.h"
 
 // Default constructor
-ALTAIR_SEN0133::ALTAIR_SEN0133(                 ) {
-  _readoutPin  = SEN0133_NOM_READOUT_PIN          ;
+ALTAIR_SEN0133::ALTAIR_SEN0133(                     ) {
+  _readoutPin  = SEN0133_NOM_READOUT_PIN              ;
 }
 
 // Constructor with input indicating pin to which sensor is connected
-ALTAIR_SEN0133::ALTAIR_SEN0133( byte readoutPin ) {
-  _readoutPin  = readoutPin                       ;
+ALTAIR_SEN0133::ALTAIR_SEN0133( byte readoutPin     ) {
+  _readoutPin  = readoutPin                           ;
 }
 
 // The returned value is in ppm.
-int  ALTAIR_SEN0133::getGasVal(                 ) {
-  _hydrogenVal = analogRead(        _readoutPin ) ;
-  return        _hydrogenVal                      ;
+int  ALTAIR_SEN0133::getHydrogenGasVal(             ) {
+  _hydrogenVal = analogRead(        _readoutPin     ) ;
+  return        _hydrogenVal                          ;
 }
 
 // Print gas value to serial monitor
-void ALTAIR_SEN0133::printGasVal(               ) {
-  Serial.print("Hydrogen gas value: "           ) ;
-  Serial.print( getGasVal( )                    ) ;
-  Serial.println("  ppm"                        ) ;
+void ALTAIR_SEN0133::printHydrogenGasVal(           ) {
+  Serial.print("Hydrogen gas value: "               ) ;
+  Serial.print( getHydrogenGasVal( )                ) ;
+  Serial.println("  ppm"                            ) ;
+}
+
+void ALTAIR_SEN0133::delayBtwReads( int delay_in_ms ) {
+  delay(         delay_in_ms                        ) ; 
 }
