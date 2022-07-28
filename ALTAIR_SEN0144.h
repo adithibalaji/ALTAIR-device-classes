@@ -22,6 +22,9 @@
 #ifndef   ALTAIR_SEN0144_h
 #define   ALTAIR_SEN0144_h
 
+#define   SEN0144_NOM_READOUT_PIN        A0                  // Analog 0 is the nominal readout pin.
+#define   SEN0144_NOM_DELAY_BTW_READS  1000                  // Value is in milliseconds.
+
 #include "Arduino.h"
 
 class ALTAIR_SEN0144 {
@@ -33,6 +36,9 @@ class ALTAIR_SEN0144 {
     void   measureSample(   ) ;
     void   calcDustDensity( ) ;
     void   printDustVal(    ) ;
+    
+    void  delayBtwReads(     int   delay_in_ms =             // Wait between reads  
+                             SEN0144_NOM_DELAY_BTW_READS ) ; //   (the nominal wait time is 1 second).
   
   private:
   
