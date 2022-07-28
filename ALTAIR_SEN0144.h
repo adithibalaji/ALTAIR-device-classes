@@ -31,20 +31,20 @@ class ALTAIR_SEN0144 {
   
   public:
   
-    ALTAIR_SEN0144(         ) ;
+    ALTAIR_SEN0144(                                      ) ;
 
-    void   measureSample(   ) ;
-    void   calcDustDensity( ) ;
-    void   printDustVal(    ) ;
+    void   measureSample(                                ) ;
+    void   calcDustDensity(                              ) ;
+    void   printDustVal(                                 ) ;
     
-    void  delayBtwReads(     int   delay_in_ms =             // Wait between reads  
+    void   delayBtwReads(    int   delay_in_ms =             // Wait between reads  
                              SEN0144_NOM_DELAY_BTW_READS ) ; //   (the nominal wait time is 1 second).
   
   private:
   
-    float _voMeasured         ;
-    float _calcVoltage        ;
-    float _dustDensity        ;
+    float _voMeasured                                      ;
+    float _calcVoltage                                     ;
+    float _dustDensity                                     ;
   
 };
 
