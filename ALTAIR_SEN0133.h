@@ -28,14 +28,14 @@
 class ALTAIR_SEN0133 {
   
   public:
-    ALTAIR_SEN0133(    );
+    ALTAIR_SEN0133(    ) ;
 
-    int   getGasVal(   );   // Returned value is in ppm.
-    void  printGasVal( );
+    int   getGasVal(   ) ;   // Returned value is in ppm.
+    void  printGasVal( ) ;
   
   private:
-    byte _readoutPin    ;
-    int  _hydrogenVal   ;   // Value is in ppm.
+    byte _readoutPin     ;
+    int  _hydrogenVal    ;   // Value is in ppm.
 
 };
 
