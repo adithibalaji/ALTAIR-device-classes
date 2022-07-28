@@ -20,22 +20,25 @@
 #ifndef   ALTAIR_SEN0133_h
 #define   ALTAIR_SEN0133_h
 
-#define   SEN0133_NOM_READOUT_PIN        A0    // Analog 0 is the nominal readout pin.
-#define   SEN0133_NOM_DELAY_BTW_READS  1000    // ms
+#define   SEN0133_NOM_READOUT_PIN        A0                  // Analog 0 is the nominal readout pin.
+#define   SEN0133_NOM_DELAY_BTW_READS  1000                  // Value is in milliseconds.
 
 #include "Arduino.h"
 
 class ALTAIR_SEN0133 {
   
   public:
-    ALTAIR_SEN0133(    ) ;
+    ALTAIR_SEN0133(                                      ) ;
 
-    int   getGasVal(   ) ;   // Returned value is in ppm.
-    void  printGasVal( ) ;
-  
+    int   getHydrogenGasVal(                             ) ; // Returned value is in ppm.
+    void  printHydrogenGasVal(                           ) ;
+    
+    void      delayBtwReads( int delay_in_ms =               // Wait between reads  
+                             SEN0133_NOM_DELAY_BTW_READS ) ; //   (the nominal wait time is 1 second).
+
   private:
-    byte _readoutPin     ;
-    int  _hydrogenVal    ;   // Value is in ppm.
+    byte _readoutPin                                       ;
+    int  _hydrogenVal                                      ; // Value is in ppm.
 
 };
 
