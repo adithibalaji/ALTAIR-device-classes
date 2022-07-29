@@ -71,7 +71,7 @@ void ALTAIR_SEN0177::printDustVal(                       )
   Serial.print(  _PM2_5Value                             ) ;
   Serial.println("  ug/m3"                               ) ;
 
-  Serial.print(  "PM1 0: "                               ) ;
+  Serial.print(  "PM10:  "                               ) ;
   Serial.print(  _PM10Value                              ) ;
   Serial.println("  ug/m3"                               ) ;
   Serial.println(                                        ) ;
