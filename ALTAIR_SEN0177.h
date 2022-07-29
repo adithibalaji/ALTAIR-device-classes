@@ -22,7 +22,9 @@
 #ifndef   ALTAIR_SEN0177_h
 #define   ALTAIR_SEN0177_h
 
-#define   LENG 31   //0x42 + 31 bytes equal to 32 bytes
+#define   SEN0177_READOUT_FLAG_BYTE    0x42             // The byte containing the Serial readout flag for this device.
+#define   SEN0177_READOUT_INFO_LENGTH    31             // In bytes.  0x42 + 31 bytes is equal to 32 bytes.
+#define   SEN0177_NOM_DELAY_BTW_READS     0             // Value is in milliseconds.
 
 #include "Arduino.h"
 
@@ -30,19 +32,22 @@ class ALTAIR_SEN0177 {
   
   public:
   
-    ALTAIR_SEN0177(                           ) ;
+    ALTAIR_SEN0177(                                 ) ;
 
 
-    int  transmitPM01(  unsigned char *thebuf ) ;
-    int  transmitPM2_5( unsigned char *thebuf ) ;
-    int  transmitPM10(  unsigned char *thebuf ) ;
-    void printDustVal(                        ) ;
+    int  transmitPM01(  unsigned char *thebuf       ) ;
+    int  transmitPM2_5( unsigned char *thebuf       ) ;
+    int  transmitPM10(  unsigned char *thebuf       ) ;
+    void printDustVal(                              ) ;
 
+    void delayBtwReads( int            delay_in_ms =    // Wait between reads  
+                        SEN0177_NOM_DELAY_BTW_READS ) ; //   (the nominal wait time is zero!).
+    
   private:
   
-    int _PM01Value                              ;          
-    int _PM2_5Value                             ;         
-    int _PM10Value                              ;     
+    int _PM01Value                                    ;          
+    int _PM2_5Value                                   ;         
+    int _PM10Value                                    ;     
   
 };
 
