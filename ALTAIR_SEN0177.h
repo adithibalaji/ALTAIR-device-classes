@@ -22,7 +22,8 @@
 #ifndef   ALTAIR_SEN0177_h
 #define   ALTAIR_SEN0177_h
 
-#define   SEN0177_READOUT_FLAG_BYTE    0x42             // The byte containing the Serial readout flag for this device.
+#define   SEN0177_READOUT_FLAG_BYTE1   0x42             // The byte containing the first  Serial readout flag for this device.
+#define   SEN0177_READOUT_FLAG_BYTE2   0x4d             // The byte containing the second Serial readout flag for this device.
 #define   SEN0177_READOUT_INFO_LENGTH    31             // In bytes.  0x42 + 31 bytes is equal to 32 bytes.
 #define   SEN0177_NOM_DELAY_BTW_READS     0             // Value is in milliseconds.
 
