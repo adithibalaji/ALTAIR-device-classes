@@ -32,6 +32,7 @@ class ALTAIR_SEN0144 {
   public:
   
     ALTAIR_SEN0144(                                      ) ;
+    ALTAIR_SEN0144(          byte  readoutPin            ) ;
 
     void   measureSample(                                ) ;
     void   calcDustDensity(                              ) ;
@@ -42,6 +43,7 @@ class ALTAIR_SEN0144 {
   
   private:
   
+    byte  _readoutPin                                      ;
     float _voMeasured                                      ;
     float _calcVoltage                                     ;
     float _dustDensity                                     ;
