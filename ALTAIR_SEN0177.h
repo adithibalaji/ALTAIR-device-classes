@@ -35,9 +35,9 @@ class ALTAIR_SEN0177 {
     ALTAIR_SEN0177(                                 ) ;
 
 
-    int  transmitPM01(  unsigned char *thebuf       ) ;
-    int  transmitPM2_5( unsigned char *thebuf       ) ;
-    int  transmitPM10(  unsigned char *thebuf       ) ;
+    int  transmitPM01(  unsigned char *thebuf       ) ; // Readout PM1.0 value of this airborne dust detector module, in ug/m3.
+    int  transmitPM2_5( unsigned char *thebuf       ) ; // Readout PM2.5 value of this airborne dust detector module, in ug/m3.
+    int  transmitPM10(  unsigned char *thebuf       ) ; // Readout PM10  value of this airborne dust detector module, in ug/m3.
     void printDustVal(                              ) ;
 
     void delayBtwReads( int            delay_in_ms =    // Wait between reads  
@@ -45,9 +45,9 @@ class ALTAIR_SEN0177 {
     
   private:
   
-    int _PM01Value                                    ;          
-    int _PM2_5Value                                   ;         
-    int _PM10Value                                    ;     
+    int _PM01Value                                    ; // in ug/m3        
+    int _PM2_5Value                                   ; // in ug/m3
+    int _PM10Value                                    ; // in ug/m3
   
 };
 
