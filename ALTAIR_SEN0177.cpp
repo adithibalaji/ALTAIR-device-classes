@@ -31,52 +31,52 @@ ALTAIR_SEN0177::ALTAIR_SEN0177( ) :
 // Get PM1.0 value
 int ALTAIR_SEN0177::transmitPM01(  unsigned char *thebuf )
 {
-  _PM01Value  =   ( ( thebuf[3] << 8 ) + thebuf[4] ) ; // readout PM1.0 value of the airborne dust detector module, in ug/m3
-  return         _PM01Value                          ;
+  _PM01Value  =   ( ( thebuf[3] << 8 ) + thebuf[4]     ) ; // readout PM1.0 value of the airborne dust detector module, in ug/m3
+  return         _PM01Value                              ;
 }
 
 // Get PM2.5 value
 int ALTAIR_SEN0177::transmitPM2_5( unsigned char *thebuf )
 {
-  _PM2_5Value  =  ( ( thebuf[5] << 8 ) + thebuf[6] ) ; // readout PM2.5 value of the airborne dust detector module, in ug/m3
-  return         _PM2_5Value                         ;
+  _PM2_5Value  =  ( ( thebuf[5] << 8 ) + thebuf[6]     ) ; // readout PM2.5 value of the airborne dust detector module, in ug/m3
+  return         _PM2_5Value                             ;
 }
 
 // Get PM10 value
 int ALTAIR_SEN0177::transmitPM10(  unsigned char *thebuf )
 {
-  _PM10Value   =  ( ( thebuf[7] << 8 ) + thebuf[8] ) ; // readout PM10 value of the airborne dust detector module, in ug/m3
-  return         _PM10Value                          ;
+  _PM10Value   =  ( ( thebuf[7] << 8 ) + thebuf[8]     ) ; // readout PM10 value of the airborne dust detector module, in ug/m3
+  return         _PM10Value                              ;
 }
 
 // Run sensor and print dust values to serial monitor
-void ALTAIR_SEN0177::printDustVal( ) 
+void ALTAIR_SEN0177::printDustVal(                     ) 
 {
-  unsigned char       buf[LENG]    ;
-  if (   Serial.find(   0x42   ) ) {  // start to read when 0x42 is received over the Serial connection
-    Serial.readBytes( buf, LENG  ) ;
+  unsigned char       buf[ SEN0177_READOUT_INFO_LENGTH ] ;
+  if (   Serial.find(      SEN0177_READOUT_FLAG_BYTE   ) ) {  // start to read when 0x42 is received over the Serial connection
+    Serial.readBytes( buf, SEN0177_READOUT_INFO_LENGTH ) ;
 
-    if ( buf[0] == 0x4d          ) {
-      transmitPM01(   buf        ) ;  // readout PM1.0 value of the airborne dust detector module, in ug/m3
-      transmitPM2_5(  buf        ) ;  // readout PM2.5 value of the airborne dust detector module, in ug/m3
-      transmitPM10(   buf        ) ;  // readout PM10  value of the airborne dust detector module, in ug/m3
+    if ( buf[0] == 0x4d                                ) {
+      transmitPM01(   buf                              ) ;  // readout PM1.0 value of the airborne dust detector module, in ug/m3
+      transmitPM2_5(  buf                              ) ;  // readout PM2.5 value of the airborne dust detector module, in ug/m3
+      transmitPM10(   buf                              ) ;  // readout PM10  value of the airborne dust detector module, in ug/m3
     }
   }
       
-  Serial.print(  "PM1.0: "       ) ;
-  Serial.print(  _PM01Value      ) ;
-  Serial.println("  ug/m3"       ) ;
+  Serial.print(  "PM1.0: "                             ) ;
+  Serial.print(  _PM01Value                            ) ;
+  Serial.println("  ug/m3"                             ) ;
 
-  Serial.print(  "PM2.5: "       ) ;
-  Serial.print(  _PM2_5Value     ) ;
-  Serial.println("  ug/m3"       ) ;
+  Serial.print(  "PM2.5: "                             ) ;
+  Serial.print(  _PM2_5Value                           ) ;
+  Serial.println("  ug/m3"                             ) ;
 
-  Serial.print(  "PM1 0: "       ) ;
-  Serial.print(  _PM10Value      ) ;
-  Serial.println("  ug/m3"       ) ;
-  Serial.println(                ) ;
+  Serial.print(  "PM1 0: "                             ) ;
+  Serial.print(  _PM10Value                            ) ;
+  Serial.println("  ug/m3"                             ) ;
+  Serial.println(                                      ) ;
 }
 
-void ALTAIR_SEN0177::delayBtwReads( int delay_in_ms ) {
-  delay(                                delay_in_ms ) ;  
+void ALTAIR_SEN0177::delayBtwReads( int delay_in_ms    ) {
+  delay(                                delay_in_ms    ) ;  
 }
