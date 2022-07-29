@@ -42,18 +42,18 @@ ALTAIR_SEN0144::ALTAIR_SEN0144( byte readoutPin ) :
 
 // Drive LED and read raw dust value
 void ALTAIR_SEN0144::measureSample(             ) {
-  _voMeasured = analogRead(         _readoutPin ) ; // read the dust value
+  _voMeasured =   analogRead(       _readoutPin ) ; // read the dust value
 }
 
 // Calculate dust density
 void ALTAIR_SEN0144::calcDustDensity(           ) {
   // 0 - 5V mapped to 0 - 1023 integer values
   // recover voltage
-  _calcVoltage = _voMeasured * ( VCC / INT_VALS ) ;
+  _calcVoltage = _voMeasured * ( SEN0144_NOM_VCC / SEN0144_INT_VALS ) ;
 
   // linear eqaution taken from http://www.howmuchsnow.com/arduino/airquality/
   // Chris Nafis (c) 2012
-  _dustDensity = DENSITY_MULTIPLIER * _calcVoltage - DENSITY_OFFSET ;
+  _dustDensity =  SEN0144_DENSITY_MULTIPLIER * _calcVoltage - SEN0144_DENSITY_OFFSET ;
 }
 
 
@@ -61,11 +61,11 @@ void ALTAIR_SEN0144::calcDustDensity(           ) {
 void ALTAIR_SEN0144::printDustVal(                  ) {
   measureSample(                                    ) ;
   calcDustDensity(                                  ) ;
-  Serial.print("Dust density: "                     ) ;
-  Serial.print(_dustDensity                         ) ;
+  Serial.print(  "Dust density: "                   ) ;
+  Serial.print(  _dustDensity                       ) ;
   Serial.println("  mg/m3"                          ) ;
 }
 
 void ALTAIR_SEN0144::delayBtwReads( int delay_in_ms ) {
-  delay(         delay_in_ms                        ) ;  
+  delay(          delay_in_ms                       ) ;  
 }
