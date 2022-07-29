@@ -24,10 +24,10 @@
 
 #define   SEN0144_NOM_READOUT_PIN        A0                  // Analog 0 is the nominal readout pin.
 #define   SEN0144_NOM_DELAY_BTW_READS  1000                  // Value is in milliseconds.
-#define   SEN0144_NOM_VCC                 5.0                // Value is in volts.
-#define   SEN0144_INT_VALS             1024.0
-#define   SEN0144_DENSITY_MULTIPLIER      0.17               // Value is in
-#define   SEN0144_DENSITY_OFFSET          0.1                // Value is in mg/m3
+#define   SEN0144_NOM_VCC                 5.0                // Value is in volts/VCC.
+#define   SEN0144_INT_VALS             1024                  // Value is in ADUs/VCC.
+#define   SEN0144_DENSITY_MULTIPLIER      0.17               // Value is in mg/(volt x m3).
+#define   SEN0144_DENSITY_OFFSET          0.1                // Value is in mg/m3.
 
 #include "Arduino.h"
 
@@ -48,9 +48,9 @@ class ALTAIR_SEN0144 {
   private:
   
     byte  _readoutPin                                      ;
-    float _voMeasured                                      ;
-    float _calcVoltage                                     ;
-    float _dustDensity                                     ;
+    float _voMeasured                                      ; // in ADUs
+    float _calcVoltage                                     ; // in volts
+    float _dustDensity                                     ; // in mg/m3
   
 };
 
