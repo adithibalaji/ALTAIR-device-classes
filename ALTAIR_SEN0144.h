@@ -22,8 +22,11 @@
 #ifndef   ALTAIR_SEN0144_h
 #define   ALTAIR_SEN0144_h
 
-#define   SEN0144_NOM_READOUT_PIN        A0                  // Analog 0 is the nominal readout pin.
-#define   SEN0144_NOM_DELAY_BTW_READS  1000                  // Value is in milliseconds.
+#define   SEN0144_NOM_LED_PIN             2                  // Digital pin 2 is the nominal SEN0144 device LED power pin. 
+#define   SEN0144_NOM_READOUT_PIN        A0                  // Analog  pin 0 is the nominal SEN0144 device   readout pin.
+#define   SEN0144_NOM_DELAY_BTW_READS  1000                  // Value is in MILLIseconds.
+#define   SEN0144_NOM_SAMPLING_TIME     280                  // Value is in MICROseconds.
+#define   SEN0144_NOM_DELTA_TIME         40                  // Value is in MICROseconds.
 #define   SEN0144_NOM_VCC                 5.0                // Value is in volts/VCC.
 #define   SEN0144_INT_VALS             1024                  // Value is in ADUs/VCC.
 #define   SEN0144_DENSITY_MULTIPLIER      0.17               // Value is in mg/(volt x m3).
@@ -36,7 +39,8 @@ class ALTAIR_SEN0144 {
   public:
   
     ALTAIR_SEN0144(                                      ) ;
-    ALTAIR_SEN0144(          byte  readoutPin            ) ;
+    ALTAIR_SEN0144(          byte      ledPin  ,
+                             byte  readoutPin            ) ;
 
     void   measureSample(                                ) ;
     void   calcDustDensity(                              ) ; // in mg/m3
@@ -47,6 +51,7 @@ class ALTAIR_SEN0144 {
   
   private:
   
+    byte  _ledPin                                          ;
     byte  _readoutPin                                      ;
     float _voMeasured                                      ; // in ADUs
     float _calcVoltage                                     ; // in volts
