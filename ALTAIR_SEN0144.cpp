@@ -24,25 +24,34 @@
 
 // Default constructor
 ALTAIR_SEN0144::ALTAIR_SEN0144(                 ) :
+  _ledPin(              SEN0144_NOM_LED_PIN     ) ,
   _readoutPin(          SEN0144_NOM_READOUT_PIN ) ,
   _voMeasured(                               0. ) ,
   _calcVoltage(                              0. ) ,
   _dustDensity(                              0. )
 {
+   pinMode(      _ledPin,                OUTPUT ) ;
 }
 
 // Constructor with input indicating sensor output pin location
-ALTAIR_SEN0144::ALTAIR_SEN0144( byte readoutPin ) :
+ALTAIR_SEN0144::ALTAIR_SEN0144( byte     ledPin ,
+                                byte readoutPin ) :
+  _ledPin(                               ledPin ) ,
   _readoutPin(                       readoutPin ) ,
   _voMeasured(                               0. ) ,
   _calcVoltage(                              0. ) ,
   _dustDensity(                              0. )
 {
+   pinMode(      _ledPin,                OUTPUT ) ;
 }
 
 // Drive LED and read raw dust value
 void ALTAIR_SEN0144::measureSample(             ) {
+   digitalWrite( _ledPin,                   LOW ) ; // power  ON the SEN0144's LED  (  LOW is  ON )
+   delayMicroseconds( SEN0144_NOM_SAMPLING_TIME ) ; // wait for 280 us
   _voMeasured =   analogRead(       _readoutPin ) ; // read the dust value
+   delayMicroseconds(    SEN0144_NOM_DELTA_TIME ) ; // wait for  40 us
+   digitalWrite( _ledPin,                  HIGH ) ; // power OFF the SEN0144's LED  ( HIGH is OFF )
 }
 
 // Calculate dust density
@@ -67,5 +76,5 @@ void ALTAIR_SEN0144::printDustVal(                  ) {
 }
 
 void ALTAIR_SEN0144::delayBtwReads( int delay_in_ms ) {
-  delay(          delay_in_ms                       ) ;  
+  delay(                                delay_in_ms ) ;  
 }
